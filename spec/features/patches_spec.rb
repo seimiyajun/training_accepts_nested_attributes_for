@@ -5,5 +5,6 @@ RSpec.feature "Patches", type: :feature do
     parent = FactoryGirl.create( :parent_with_child )
     expect( Parent.count ).to eq 1
     expect( Child.count ).to eq 1
+    expect( Child.first.parent_id ).to eq parent.id
   end
 end
