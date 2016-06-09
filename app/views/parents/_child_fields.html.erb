@@ -1,0 +1,9 @@
+  <div class="field">
+    <%= f.label 'Child name' %><br>
+    <%= f.text_field :name %>
+    <% if @parent.persisted? %>
+      <%= f.label '削除' %>
+      <%= f.check_box :_destroy %>
+    <% end %>
+    <br>
+  </div>

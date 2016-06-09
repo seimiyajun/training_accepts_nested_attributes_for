@@ -15,17 +15,15 @@
     <%= f.label :name %><br>
     <%= f.text_field :name %>
   </div>
-
+  
   <div class="field">
     <%= f.fields_for :children do |c| %>
-      <%= c.label 'Child name' %><br>
-      <%= c.text_field :name %>
-      <% if @parent.persisted? %>
-        <%= c.label '削除' %>
-        <%= c.check_box :_destroy %>
-      <% end %>
-      <br>
+      <%= render 'child_fields', f: c %>
     <% end %>
+  </div>
+  <div class="field">
+  <%= link_to_add_association '子を追加', f, :children,
+    data: { association_insertion_method: 'before' } %>
   </div>
 
   <div class="actions">
